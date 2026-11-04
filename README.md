@@ -11,7 +11,9 @@ To get them all at once, download `all-skins.zip` from the [latest release](http
 ## Gallery
 
 <!-- gallery:start -->
-No skins yet. [Add the first one](CONTRIBUTING.md).
+| | Skin | By | Knock | |
+| :-: | --- | --- | --- | --- |
+| <img src="skins/tibo/idle.png" width="120" alt=""> | **tibo** | ya-luotao (@ya-luotao) | `key` | [Download](https://github.com/rubycatco/plinth-skins/releases/latest/download/tibo.plinthskin) |
 <!-- gallery:end -->
 
 ## Add yours
