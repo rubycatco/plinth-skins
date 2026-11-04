@@ -11,7 +11,9 @@ To get them all at once, download `all-skins.zip` from the [latest release](http
 ## Gallery
 
 <!-- gallery:start -->
-No skins yet. [Add the first one](CONTRIBUTING.md).
+| | Skin | By | Knock | |
+| :-: | --- | --- | --- | --- |
+| <img src="skins/poteto/idle.png" width="120" alt=""> | **poteto** | ya-luotao (@ya-luotao) | `cartoon` | [Download](https://github.com/rubycatco/plinth-skins/releases/latest/download/poteto.plinthskin) |
 <!-- gallery:end -->
 
 ## Add yours
