@@ -1,0 +1,38 @@
+name: Skins
+
+# Pull requests: check every skin and that README.md's gallery is current.
+# Pushes to main: also pack each skin as <id>.plinthskin, plus all-skins.zip,
+# and publish them as the "latest" release, which the gallery links to.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  skins:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check skins and gallery
+        run: python3 scripts/skins.py check
+
+      - name: Pack and publish
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/skins.py pack
+          if ! ls dist/*.plinthskin >/dev/null 2>&1; then
+            echo "No skins to publish yet."
+            exit 0
+          fi
+          (cd dist && zip -q all-skins.zip *.plinthskin)
+          # One release that always holds the current skins, replaced on each push.
+          gh release delete latest --yes --cleanup-tag 2>/dev/null || true
+          gh release create latest dist/*.plinthskin dist/all-skins.zip \
+            --title "Current skins" --notes "Every skin in the gallery, as of ${GITHUB_SHA::7}." --latest
