@@ -1,0 +1,8 @@
+{
+  "name": "Space Key",
+  "names": { "zh-Hans": "空格键" },
+  "author": "Plinth",
+  "license": "CC0-1.0",
+  "strike": [0.52, 0.515],
+  "voice": "key"
+}
