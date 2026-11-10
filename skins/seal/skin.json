@@ -1,0 +1,9 @@
+{
+  "name": "Seal",
+  "names": { "zh-Hans": "印章" },
+  "author": "Plinth",
+  "license": "CC0-1.0",
+  "strike": [0.55, 0.39],
+  "voice": "stamp",
+  "glow": "#F95240"
+}

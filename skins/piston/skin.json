@@ -1,0 +1,8 @@
+{
+  "name": "Piston",
+  "names": { "zh-Hans": "活塞" },
+  "author": "Plinth",
+  "license": "CC0-1.0",
+  "strike": [0.52, 0.39],
+  "voice": "piston"
+}

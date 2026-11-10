@@ -2,11 +2,12 @@
 
 1. Make a skin in [Plinth's skin format](https://github.com/rubycatco/plinth/blob/main/docs/SKINS.md) and try it in Plinth at each fish size.
 2. Put it in `skins/<id>/`, where `<id>` is lowercase letters, digits and hyphens, such as `paper-crane`. The id names the download, so choose one you'll keep.
-3. In `skin.json`, besides `name`, and optionally `strike` and `voice`, add:
+3. In `skin.json`, besides `name`, and optionally `names`, `strike` and `voice`, add:
 
    ```json
    {
      "name": "Paper Crane",
+     "names": { "zh-Hans": "纸鹤" },
      "author": "Your Name (@you)",
      "license": "CC0-1.0",
      "voice": "bamboo"
@@ -28,7 +29,7 @@
 - `idle.png` exists. Every PNG is square, has a transparent background, and frames are all the same size.
 - Only skin files: `idle`, `blink` and `hit` frames (single or numbered from 1), `mallet.png`, `impact.png` and `skin.json`. No folders or links.
 - The whole skin is under 3 MB.
-- `skin.json` is valid JSON with `name`, `author` and `license`; `voice` is one of Plinth's twelve; `strike` is two numbers from 0 to 1.
+- `skin.json` is valid JSON with `name`, `author` and `license`; `names`, if there, maps language codes to names; `voice` is one of Plinth's twenty-one; `strike` is two numbers from 0 to 1.
 
 ## Real people
 

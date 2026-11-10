@@ -1,0 +1,8 @@
+{
+  "name": "CRT Terminal",
+  "names": { "zh-Hans": "CRT 终端" },
+  "author": "Plinth",
+  "license": "CC0-1.0",
+  "strike": [0.52, 0.395],
+  "voice": "crt"
+}

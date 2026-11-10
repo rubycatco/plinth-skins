@@ -22,8 +22,10 @@ README = os.path.join(ROOT, "README.md")
 DIST = os.path.join(ROOT, "dist")
 RELEASE = "https://github.com/rubycatco/plinth-skins/releases/latest/download"
 
+# KnockSynth.voices, in Plinth's Sources/PlinthCore/KnockSynth.swift.
 VOICES = {"wood", "lacquer", "ink", "cartoon", "pixel", "jade", "bowl", "key",
-          "bamboo", "stone", "piston", "crt"}
+          "bamboo", "stone", "piston", "crt", "bead", "plate", "porcelain",
+          "bell", "stamp", "chime", "board", "ceramic", "temple"}
 LICENSES = {"CC0-1.0", "CC-BY-4.0"}
 FRAMES = re.compile(r"^(idle|blink|hit)(-[1-9][0-9]*)?\.png$")
 OTHER = {"mallet.png", "impact.png", "skin.json"}
@@ -98,6 +100,10 @@ def check(skin):
     for key in ("name", "author"):
         if not isinstance(meta.get(key), str) or not meta[key].strip():
             problems.append(f"skin.json: \"{key}\" is required")
+    names = meta.get("names")
+    if names is not None and not (isinstance(names, dict) and names
+                                  and all(isinstance(v, str) and v.strip() for v in names.values())):
+        problems.append("skin.json: \"names\" must map language codes to names, such as {\"zh-Hans\": \"纸鹤\"}")
     if meta.get("license") not in LICENSES:
         problems.append(f"skin.json: \"license\" must be one of {sorted(LICENSES)}")
     if "voice" in meta and meta["voice"] not in VOICES:
@@ -132,8 +138,10 @@ def gallery(skins):
     for name, meta in skins:
         voice = meta.get("voice", "wood")
         author = meta["author"].replace("|", "\\|")
-        title = meta["name"].replace("|", "\\|")
-        rows.append(f'| <img src="skins/{name}/idle.png" width="120" alt=""> | **{title}** | {author} | '
+        # The name, then its names in other languages.
+        others = meta.get("names", {})
+        title = " · ".join([f"**{meta['name']}**"] + [others[k] for k in sorted(others)]).replace("|", "\\|")
+        rows.append(f'| <img src="skins/{name}/idle.png" width="120" alt=""> | {title} | {author} | '
                     f"`{voice}` | [Download]({RELEASE}/{name}.plinthskin) |")
     return "\n".join(rows)
 

@@ -1,0 +1,9 @@
+{
+  "name": "Abacus",
+  "names": { "zh-Hans": "算盘" },
+  "author": "Plinth",
+  "license": "CC0-1.0",
+  "strike": [0.5, 0.325],
+  "voice": "bead",
+  "glow": "#F0BA44"
+}
